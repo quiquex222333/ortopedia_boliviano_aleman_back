@@ -1,0 +1,30 @@
+{
+  "name": "ortopedia_boliviano_aleman_back",
+  "version": "1.0.0",
+  "description": "Este es el backend de funcionamiento del sistema de la ortopedia boliviano aleman",
+  "keywords": [
+    "ortopedia",
+    "boliviano",
+    "aleman"
+  ],
+  "homepage": "https://github.com/quiquex222333/ortopedia_boliviano_aleman_back#readme",
+  "bugs": {
+    "url": "https://github.com/quiquex222333/ortopedia_boliviano_aleman_back/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quiquex222333/ortopedia_boliviano_aleman_back.git"
+  },
+  "license": "ISC",
+  "author": "Enrique Rivera, Alejandro Mancilla, Marcelo Torrez, Ariel Camargo",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
