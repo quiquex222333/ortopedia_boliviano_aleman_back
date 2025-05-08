@@ -8,6 +8,7 @@ Información general
 ## 📁 Estructura del Proyecto
 
 ```
+tests/           # Pruebas unitarias
 src/
 ├── config/          # Conexión a base de datos y otras configuraciones
 ├── controllers/     # Controladores HTTP
@@ -17,7 +18,6 @@ src/
 ├── utils/           # Funciones auxiliares como hash y JWT
 ├── middlewares/     # Middlewares personalizados (autenticación, validación)
 ├── validators/      # Validadores personalizados (Schemas)
-├── tests/           # Pruebas unitarias
 └── index.js         # Punto de entrada de la aplicación
 ```
 
