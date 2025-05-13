@@ -24,6 +24,7 @@ router.use(authenticate);
  *         - name
  *         - address
  *         - city
+ *         - imagePath
  *         - phones
  *         - openingHours
  *         - mapUrl
@@ -40,6 +41,9 @@ router.use(authenticate);
  *         city:
  *           type: string
  *           description: Ciudad
+ *         imagePath:
+ *           type: string
+ *           description: https://location.png
  *         phones:
  *           type: array
  *           items:
@@ -90,6 +94,7 @@ router.use(authenticate);
  *               - name
  *               - address
  *               - city
+ *               - imagePath
  *               - phones
  *               - openingHours
  *               - mapUrl
@@ -99,6 +104,8 @@ router.use(authenticate);
  *               address:
  *                 type: string
  *               city:
+ *                 type: string
+ *               imagePath:
  *                 type: string
  *               phones:
  *                 type: array
