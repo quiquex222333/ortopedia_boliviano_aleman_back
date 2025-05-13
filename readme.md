@@ -44,6 +44,9 @@ npm install
 cp .env.template .env
 # Edita .env con tus credenciales de MongoDB y la clave JWT
 
+# Generar datos de prueba
+npm run seed
+
 # Iniciar en modo desarrollo
 npm run dev
 

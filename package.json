@@ -22,9 +22,11 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest"
+    "test": "jest",
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
