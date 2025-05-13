@@ -57,6 +57,7 @@ npm start
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/miapp
 JWT_SECRET=clave_secreta_segura
+FRONTEND_ORIGIN=dominio_de_front
 ```
 
 > ⚠️ No olvides que el archivo `.env` está en `.gitignore`. Usa `.env.template` para compartir estructura sin exponer datos sensibles.
