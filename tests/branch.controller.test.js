@@ -17,9 +17,6 @@ app.use('/api/branches', branchRoutes);
 let token;
 
 beforeAll(async () => {
-  await mongoose.connect('mongodb://localhost:27017/testdb');
-
-  // Crear usuario y obtener token
   const email = 'branchtest@example.com';
   const password = '123456';
   await User.create({ email, password: hashPassword(password) });
@@ -29,11 +26,6 @@ beforeAll(async () => {
     .send({ email, password });
 
   token = res.body.token;
-});
-
-afterAll(async () => {
-  await mongoose.connection.db.dropDatabase();
-  await mongoose.disconnect();
 });
 
 describe('Branch Routes (protected)', () => {

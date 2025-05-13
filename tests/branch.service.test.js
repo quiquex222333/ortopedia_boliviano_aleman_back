@@ -9,14 +9,6 @@ const {
 } = require('../src/services/branch.service');
 
 describe('Branch Service', () => {
-  beforeAll(async () => {
-    await mongoose.connect('mongodb://localhost:27017/testdb');
-  });
-
-  afterAll(async () => {
-    await mongoose.connection.db.dropDatabase();
-    await mongoose.disconnect();
-  });
 
   let branchId;
 
