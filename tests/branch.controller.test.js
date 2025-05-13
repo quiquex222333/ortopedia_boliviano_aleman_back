@@ -37,6 +37,7 @@ describe('Branch Routes (protected)', () => {
         name: 'Sucursal Norte',
         address: 'Av. Siempre Viva 123',
         city: 'La Paz',
+        imagePath: 'https://location.png',
         phones: ['+59170000000'],
         openingHours: [{ day: 'Monday', from: '08:00', to: '17:00' }],
         mapUrl: 'https://maps.google.com/?q=-16.5,-68.15'
@@ -63,6 +64,7 @@ describe('Branch Routes (protected)', () => {
         name: 'Sucursal Temporal',
         address: 'Av. Transitoria 456',
         city: 'Cochabamba',
+        imagePath: 'https://location.png',
         phones: ['+59176000000'],
         openingHours: [{ day: 'Tuesday', from: '09:00', to: '18:00' }],
         mapUrl: 'https://maps.google.com/?q=-17.4,-66.15'
@@ -77,6 +79,7 @@ describe('Branch Routes (protected)', () => {
         name: 'Sucursal Actualizada',
         address: 'Calle Nueva 789',
         city: 'Santa Cruz',
+        imagePath: 'https://location.png',
         phones: ['+59178000000'],
         openingHours: [{ day: 'Wednesday', from: '10:00', to: '16:00' }],
         mapUrl: 'https://maps.google.com/?q=-17.8,-63.18'
@@ -94,6 +97,7 @@ describe('Branch Routes (protected)', () => {
         name: 'Sucursal Para Borrar',
         address: 'Calle X 111',
         city: 'El Alto',
+        imagePath: 'https://location.png',
         phones: ['+59177000000'],
         openingHours: [{ day: 'Friday', from: '08:00', to: '14:00' }],
         mapUrl: 'https://maps.google.com/?q=-16.55,-68.22'

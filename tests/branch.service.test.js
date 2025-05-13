@@ -17,6 +17,7 @@ describe('Branch Service', () => {
       name: 'Sucursal Test',
       address: 'Calle Falsa 123',
       city: 'La Paz',
+      imagePath: 'https://location.png',
       phones: ['+59170000000'],
       openingHours: [{ day: 'Monday', from: '08:00', to: '17:00' }],
       mapUrl: 'https://maps.google.com/?q=-16.5,-68.15'
