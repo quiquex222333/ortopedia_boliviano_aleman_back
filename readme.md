@@ -8,6 +8,7 @@ Información general
 ## 📁 Estructura del Proyecto
 
 ```
+tests/           # Pruebas unitarias
 src/
 ├── config/          # Conexión a base de datos y otras configuraciones
 ├── controllers/     # Controladores HTTP
@@ -16,6 +17,7 @@ src/
 ├── services/        # Lógica de negocio
 ├── utils/           # Funciones auxiliares como hash y JWT
 ├── middlewares/     # Middlewares personalizados (autenticación, validación)
+├── validators/      # Validadores personalizados (Schemas)
 └── index.js         # Punto de entrada de la aplicación
 ```
 
@@ -47,6 +49,9 @@ npm run dev
 
 # Iniciar en modo producción
 npm start
+
+# Correr pruebas unitarias
+npm run test
 ```
 
 ---
@@ -70,6 +75,11 @@ FRONTEND_ORIGIN=dominio_de_front
 |--------|-----------------------|----------------------------|
 | POST   | `/api/users/register` | Registro de nuevo usuario |
 | POST   | `/api/users/login`    | Login y retorno de token  |
+| POST   | `/api/branches/`      | Craa una nueva sucursal   |
+| GET    | `/api/branches/`      | Obtener todas las sucursales |
+| GET    | `/api/branches/{id}`  | Obtener sucursal por id      |
+| PUT    | `/api/branches/{id}`  | Actualiza sucursal pod id    |
+| DELETE | `/api/branches/{id}`  | Eliminar sucursal por id     |
 
 ---
 
@@ -78,3 +88,11 @@ FRONTEND_ORIGIN=dominio_de_front
 - Contraseñas encriptadas con SHA-256 (no reversible).
 - Tokens JWT con expiración de 1 hora.
 - `.env` está ignorado por Git para evitar exponer credenciales.
+
+---
+
+## 📚 Documentación con Swagger
+
+La documentación interactiva de la API está disponible en:
+
+👉 [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
