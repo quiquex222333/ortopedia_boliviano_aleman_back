@@ -44,6 +44,9 @@ npm install
 cp .env.template .env
 # Edita .env con tus credenciales de MongoDB y la clave JWT
 
+# Generar datos de prueba
+npm run seed
+
 # Iniciar en modo desarrollo
 npm run dev
 
@@ -80,6 +83,11 @@ FRONTEND_ORIGIN=dominio_de_front
 | GET    | `/api/branches/{id}`  | Obtener sucursal por id      |
 | PUT    | `/api/branches/{id}`  | Actualiza sucursal pod id    |
 | DELETE | `/api/branches/{id}`  | Eliminar sucursal por id     |
+| POST   | `/api/doctors/`      | Craa un nuevo doctor         |
+| GET    | `/api/doctors/`      | Obtener todos los doctores   |
+| GET    | `/api/doctors/{id}`  | Obtener doctor por id        |
+| PUT    | `/api/doctors/{id}`  | Actualiza doctor pod id      |
+| DELETE | `/api/doctors/{id}`  | Eliminar doctor por id       |
 
 ---
 

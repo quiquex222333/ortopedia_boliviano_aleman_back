@@ -8,14 +8,6 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 
 describe('User Routes', () => {
-  beforeAll(async () => {
-    await mongoose.connect('mongodb://localhost:27017/testdb');
-  });
-
-  afterAll(async () => {
-    await mongoose.connection.db.dropDatabase();
-    await mongoose.disconnect();
-  });
 
   it('should register a user', async () => {
     const res = await request(app).post('/api/users/register').send({
