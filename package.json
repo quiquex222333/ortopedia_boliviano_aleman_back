@@ -23,7 +23,11 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "jest",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "seed:users": "node scripts/seed_users.js",
+    "seed:branches": "node scripts/seed_branches.js",
+    "seed:doctors": "node scripts/seed_doctors.js",
+    "seed:employees": "node scripts/seed_employees.js"
   },
   "dependencies": {
     "@faker-js/faker": "^9.7.0",
