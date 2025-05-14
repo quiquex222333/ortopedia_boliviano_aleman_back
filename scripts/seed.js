@@ -39,7 +39,7 @@ async function seed() {
         address: faker.location.streetAddress(),
         city: faker.location.city(),
         phones: [faker.phone.number(), faker.phone.number()],
-        emailPath: faker.image.url(),
+        imagePath: faker.image.url(),
         openingHours: [
           { day: 'Monday', from: '08:00', to: '17:00' },
           { day: 'Saturday', from: '09:00', to: '13:00' }
