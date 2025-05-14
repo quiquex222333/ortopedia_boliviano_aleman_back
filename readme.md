@@ -8,6 +8,7 @@ Información general
 ## 📁 Estructura del Proyecto
 
 ```
+scripts/         # Scripts necesarios para poblar la DB
 tests/           # Pruebas unitarias
 src/
 ├── config/          # Conexión a base de datos y otras configuraciones
@@ -46,6 +47,13 @@ cp .env.template .env
 
 # Generar datos de prueba
 npm run seed
+
+# Genera todos los datos de prueba
+npm run seed
+# Generar datos de prueba para cada endpoint
+npm run seed:<endpoind>
+# Ejemplo del comando de arriba
+npm run seed:employees
 
 # Iniciar en modo desarrollo
 npm run dev
@@ -88,6 +96,12 @@ FRONTEND_ORIGIN=dominio_de_front
 | GET    | `/api/doctors/{id}`  | Obtener doctor por id        |
 | PUT    | `/api/doctors/{id}`  | Actualiza doctor pod id      |
 | DELETE | `/api/doctors/{id}`  | Eliminar doctor por id       |
+| POST   | `/api/employees/`      | Craa un nuevo empleado         |
+| GET    | `/api/employees/`      | Obtener todos los empleados   |
+| GET    | `/api/employees/filter?type`      | Obtener todos los empleados por tipo   |
+| GET    | `/api/employees/{id}`  | Obtener empleado por id        |
+| PUT    | `/api/employees/{id}`  | Actualiza empleado pod id      |
+| DELETE | `/api/employees/{id}`  | Eliminar empleado por id       |
 
 ---
 

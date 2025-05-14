@@ -5,6 +5,7 @@ const { connectDB } = require('./config/db');
 const userRoutes = require('./routes/user.routes');
 const branchRoutes = require('./routes/branch.routes');
 const doctorRoutes = require('./routes/doctor.routes');
+const employeeRoutes = require('./routes/employee.routes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./config/swagger');
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/branches', branchRoutes);
 app.use('/api/doctors', doctorRoutes);
+app.use('/api/employees', employeeRoutes);
 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
