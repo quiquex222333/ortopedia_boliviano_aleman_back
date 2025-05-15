@@ -5,6 +5,7 @@ const seedUsers = require('./seed_users');
 const seedDoctors = require('./seed_doctors');
 const seedBranches = require('./seed_branches');
 const seedEmployees = require('./seed_employees');
+const seedProducts = require('./seed_products');
 
 async function runAllSeeds() {
   try {
@@ -14,6 +15,7 @@ async function runAllSeeds() {
     await seedDoctors();
     await seedBranches();
     await seedEmployees();
+    await seedProducts();
 
     console.log('🎉 Base de datos poblada exitosamente.');
     process.exit(0);

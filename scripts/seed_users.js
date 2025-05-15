@@ -13,3 +13,7 @@ async function seedUsers() {
 }
 
 module.exports = seedUsers;
+
+if (require.main === module) {
+  seedUsers();
+}

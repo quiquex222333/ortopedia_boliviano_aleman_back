@@ -102,6 +102,11 @@ FRONTEND_ORIGIN=dominio_de_front
 | GET    | `/api/employees/{id}`  | Obtener empleado por id        |
 | PUT    | `/api/employees/{id}`  | Actualiza empleado pod id      |
 | DELETE | `/api/employees/{id}`  | Eliminar empleado por id       |
+| POST   | `/api/products/`      | Craa un nuevo producto         |
+| GET    | `/api/products/`      | Obtener todos los productos   |
+| GET    | `/api/products/{id}`  | Obtener producto por id        |
+| PUT    | `/api/products/{id}`  | Actualiza producto pod id      |
+| DELETE | `/api/products/{id}`  | Eliminar producto por id       |
 
 ---
 
