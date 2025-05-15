@@ -34,7 +34,7 @@ async function remove(req, res) {
 
 async function getByType(req, res) {
   const type = req.query.type;
-  if (!['cashier', 'technician'].includes(type)) {
+  if (!['admin', 'cajero', 'tecnico', 'almacenero', 'recepcionista', 'contador'].includes(type)) {
     return res.status(400).json({ error: 'Tipo de empleado inválido' });
   }
   const employees = await service.getEmployeesByType(type);

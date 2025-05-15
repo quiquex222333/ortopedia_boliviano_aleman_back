@@ -15,6 +15,7 @@ app.use('/api/employees', employeeRoutes);
 let token;
 
 beforeAll(async () => {
+
   const email = 'employeetest@example.com';
   const password = '123456';
   await User.create({ email, password: hashPassword(password) });
@@ -37,11 +38,13 @@ describe('Employee Routes (protected)', () => {
         firstName: 'Sofía',
         lastName: 'Mendoza',
         middleName: 'Rojas',
-        employeeType: 'cashier'
+        employeeType: 'cajero',
+        imagePath: 'https://example.com/employees/sofia.jpg'
       });
 
     expect(res.statusCode).toBe(201);
     expect(res.body.firstName).toBe('Sofía');
+    expect(res.body.imagePath).toContain('sofia.jpg');
     employeeId = res.body._id;
   });
 
@@ -56,11 +59,11 @@ describe('Employee Routes (protected)', () => {
 
   it('should get employees filtered by type', async () => {
     const res = await request(app)
-      .get('/api/employees/filter?type=cashier')
+      .get('/api/employees/filter?type=cajero')
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.every(e => e.employeeType === 'cashier')).toBe(true);
+    expect(res.body.every(e => e.employeeType === 'cajero')).toBe(true);
   });
 
   it('should get employee by ID', async () => {
@@ -80,11 +83,13 @@ describe('Employee Routes (protected)', () => {
         firstName: 'Sofía Belén',
         lastName: 'Mendoza',
         middleName: 'Rojas',
-        employeeType: 'cashier'
+        employeeType: 'cajero',
+        imagePath: 'https://example.com/employees/sofia_belen.jpg'
       });
 
     expect(res.statusCode).toBe(200);
     expect(res.body.firstName).toBe('Sofía Belén');
+    expect(res.body.imagePath).toContain('sofia_belen.jpg');
   });
 
   it('should delete an employee', async () => {
