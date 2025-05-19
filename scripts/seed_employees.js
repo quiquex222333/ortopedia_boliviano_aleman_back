@@ -22,12 +22,16 @@ async function seedEmployees() {
       });
     }
 
-    console.log('🧑‍💼 Empleados de prueba insertados correctamente.');
-    process.exit(0);
+    console.log('✅ Empleados de prueba insertados correctamente.');
   } catch (error) {
     console.error('❌ Error al insertar empleados:', error);
-    process.exit(1);
+  } finally {
+    await mongoose.disconnect(); 
   }
 }
 
 module.exports = seedEmployees;
+
+if (require.main === module) {
+  seedEmployees();
+}

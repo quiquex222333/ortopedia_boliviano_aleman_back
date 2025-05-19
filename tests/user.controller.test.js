@@ -2,7 +2,6 @@ const request = require('supertest');
 const express = require('express');
 const app = express();
 const userRoutes = require('../src/routes/user.routes');
-const mongoose = require('mongoose');
 
 app.use(express.json());
 app.use('/api/users', userRoutes);
