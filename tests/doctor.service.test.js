@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Doctor = require('../src/models/doctor.model');
 const {
   createDoctor,
   getAllDoctors,

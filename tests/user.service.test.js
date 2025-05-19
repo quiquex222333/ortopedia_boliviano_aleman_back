@@ -1,7 +1,4 @@
-const mongoose = require('mongoose');
-const User = require('../src/models/user.model');
 const { registerUser, loginUser } = require('../src/services/user.service');
-const { hashPassword } = require('../src/utils/hash');
 
 describe('User Service', () => {
 

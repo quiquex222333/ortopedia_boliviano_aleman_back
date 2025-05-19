@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Product = require('../src/models/product.model');
 const {
   createProduct,
   getAllProducts,

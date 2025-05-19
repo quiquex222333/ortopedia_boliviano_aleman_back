@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Branch = require('../src/models/branch.model');
 const {
   createBranch,
   getAllBranches,

@@ -1,7 +1,6 @@
 const request = require('supertest');
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 
 const productRoutes = require('../src/routes/product.routes');
 const userRoutes = require('../src/routes/user.routes');
