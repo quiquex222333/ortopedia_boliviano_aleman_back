@@ -39,8 +39,12 @@ router.use(authenticate);
  *           description: Apellido materno
  *         employeeType:
  *           type: string
- *           enum: [cashier, technician]
- *           description: Tipo de empleado, valores admitidos en la siguiete lista"
+ *           enum: [admin, cajero, tecnico, almacenero, recepcionista, contador]
+ *           description: Tipo de empleado
+ *         imagePath:
+ *           type: string
+ *           format: uri
+ *           description: URL de imagen del empleado
  */
 
 /**
@@ -93,7 +97,7 @@ router.get('/', controller.getAll);
  *         required: true
  *         schema:
  *           type: string
- *           enum: [cashier, technician]
+ *           enum: [admin, cajero, tecnico, almacenero, recepcionista, contador]
  *         description: Tipo de empleado
  *     responses:
  *       200:

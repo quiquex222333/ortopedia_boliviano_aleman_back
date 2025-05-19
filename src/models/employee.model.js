@@ -6,9 +6,10 @@ const employeeSchema = new mongoose.Schema({
   middleName: { type: String, required: true },
   employeeType: {
     type: String,
-    enum: ['cashier', 'technician'],
+    enum: ['admin', 'cajero', 'tecnico', 'almacenero', 'recepcionista', 'contador'],
     required: true
-  }
+  },
+  imagePath: { type: String }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Employee', employeeSchema);

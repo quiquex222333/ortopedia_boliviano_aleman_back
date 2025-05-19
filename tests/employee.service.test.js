@@ -18,12 +18,14 @@ describe('Employee Service', () => {
       firstName: 'Luis',
       lastName: 'Ramírez',
       middleName: 'González',
-      employeeType: 'technician'
+      employeeType: 'tecnico',
+      imagePath: 'https://example.com/employees/luis.jpg'
     });
 
     employeeId = employee._id;
     expect(employee.firstName).toBe('Luis');
-    expect(employee.employeeType).toBe('technician');
+    expect(employee.employeeType).toBe('tecnico');
+    expect(employee.imagePath).toMatch(/^https:\/\//);
   });
 
   it('should retrieve all employees', async () => {
@@ -40,14 +42,16 @@ describe('Employee Service', () => {
 
   it('should update an employee', async () => {
     const updated = await updateEmployee(employeeId, {
-      firstName: 'Luis Eduardo'
+      firstName: 'Luis Eduardo',
+      imagePath: 'https://example.com/employees/luis_updated.jpg'
     });
     expect(updated.firstName).toBe('Luis Eduardo');
+    expect(updated.imagePath).toContain('luis_updated');
   });
 
   it('should get employees by type', async () => {
-    const technicians = await getEmployeesByType('technician');
-    expect(technicians.every(e => e.employeeType === 'technician')).toBe(true);
+    const technicians = await getEmployeesByType('tecnico');
+    expect(technicians.every(e => e.employeeType === 'tecnico')).toBe(true);
   });
 
   it('should delete an employee', async () => {

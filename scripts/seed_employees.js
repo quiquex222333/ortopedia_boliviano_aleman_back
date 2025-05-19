@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const { faker } = require('@faker-js/faker');
-const Employee = require('../src/models/employee.model');
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const { faker } = require("@faker-js/faker");
+const Employee = require("../src/models/employee.model");
 
 dotenv.config();
 
@@ -11,14 +11,22 @@ async function seedEmployees() {
 
     await Employee.deleteMany();
 
-    const types = ['cashier', 'technician'];
+    const types = [
+      "admin",
+      "cajero",
+      "tecnico",
+      "almacenero",
+      "recepcionista",
+      "contador",
+    ];
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 12; i++) {
       await Employee.create({
         firstName: faker.person.firstName(),
         lastName: faker.person.lastName(),
         middleName: faker.person.lastName(),
-        employeeType: types[i % 2]
+        employeeType: types[i % types.length],
+        imagePath: faker.image.avatar(),
       });
     }
 
@@ -28,6 +36,10 @@ async function seedEmployees() {
   } finally {
     await mongoose.disconnect(); 
   }
+}
+
+if (require.main === module) {
+  seedEmployees();
 }
 
 module.exports = seedEmployees;
