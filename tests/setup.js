@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 beforeAll(async () => {
   const url = 'mongodb://localhost:27017/testdb';
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect(url);
 });
 
 afterAll(async () => {
