@@ -1,8 +1,6 @@
 const request = require('supertest');
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
 
 const doctorRoutes = require('../src/routes/doctor.routes');
 const userRoutes = require('../src/routes/user.routes');

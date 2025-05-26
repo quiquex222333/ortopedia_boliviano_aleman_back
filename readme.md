@@ -107,6 +107,11 @@ FRONTEND_ORIGIN=dominio_de_front
 | GET    | `/api/products/{id}`  | Obtener producto por id        |
 | PUT    | `/api/products/{id}`  | Actualiza producto pod id      |
 | DELETE | `/api/products/{id}`  | Eliminar producto por id       |
+| POST   | `/api/patients/`      | Craa un nuevo paciente         |
+| GET    | `/api/patients/`      | Obtener todos los pacientes    |
+| GET    | `/api/patients/{id}`  | Obtener paciente por id        |
+| PUT    | `/api/patients/{id}`  | Actualiza paciente pod id      |
+| DELETE | `/api/patients/{id}`  | Eliminar paciente por id       |
 
 ---
 

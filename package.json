@@ -28,7 +28,8 @@
     "seed:branches": "node scripts/seed_branches.js",
     "seed:doctors": "node scripts/seed_doctors.js",
     "seed:employees": "node scripts/seed_employees.js",
-    "seed:products": "node scripts/seed_products.js"
+    "seed:products": "node scripts/seed_products.js",
+    "seed:patients": "node scripts/seed_patients.js"
   },
   "dependencies": {
     "@faker-js/faker": "^9.7.0",

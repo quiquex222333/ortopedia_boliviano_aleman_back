@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Employee = require('../src/models/employee.model');
 const {
   createEmployee,
   getAllEmployees,
