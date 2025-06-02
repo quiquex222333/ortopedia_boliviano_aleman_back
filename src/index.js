@@ -8,6 +8,9 @@ const doctorRoutes = require('./routes/doctor.routes');
 const employeeRoutes = require('./routes/employee.routes');
 const productRoutes = require('./routes/product.routes');
 const patientRoutes = require('./routes/patient.routes');
+const changeHistoryRoutes = require('./routes/changeHistory.routes');
+const paymentRoutes = require('./routes/payment.routes');
+const saleRoutes = require('./routes/sale.routes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./config/swagger');
 
@@ -25,6 +28,9 @@ app.use('/api/doctors', doctorRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/patients', patientRoutes);
+app.use('/api/changesHistory', changeHistoryRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/sales', saleRoutes);
 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
