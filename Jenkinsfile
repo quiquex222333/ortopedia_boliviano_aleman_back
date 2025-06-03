@@ -24,13 +24,13 @@ pipeline {
 
         stage('Lint') {
             steps {
-                sh 'npx eslint .'
+                sh 'npm run lint'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npx jest'
+                sh 'npm run test'
             }
         }
 
