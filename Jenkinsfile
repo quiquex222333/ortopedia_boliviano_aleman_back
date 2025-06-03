@@ -45,13 +45,13 @@ pipeline {
 
         stage('Lint') {
             steps {
-                sh './node_modules/.bin/eslint .'
+                sh 'npm run lint'
             }
         }
 
         stage('Test') {
             steps {
-                sh './node_modules/.bin/jest'
+                sh 'npm run test'
             }
         }
 
@@ -82,6 +82,9 @@ pipeline {
     }
 
     post {
+        always {
+            junit allowEmptyResults: true, testResults: 'reports/junit/jest-report.xml'
+        }
         failure {
             echo "❌ Falló el pipeline en la rama ${env.BRANCH_NAME}"
         }
