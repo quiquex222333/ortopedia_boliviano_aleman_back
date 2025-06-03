@@ -33,5 +33,39 @@ pipeline {
                 sh 'npx jest'
             }
         }
+
+        stage('Deploy') {
+            when {
+                anyOf {
+                    branch 'develop'
+                    branch 'staging'
+                }
+            }
+            steps {
+                script {
+                    def envFolder = (env.BRANCH_NAME == 'develop') ? 'dev' : 'staging'
+                    def appName = "backend-${envFolder}"
+
+                    sh """
+                        DEST_DIR=/var/www/backend-${envFolder}
+                        rm -rf \$DEST_DIR
+                        mkdir -p \$DEST_DIR
+                        cp -r . \$DEST_DIR
+
+                        pm2 delete ${appName} || true
+                        pm2 start \$DEST_DIR/app.js --name ${appName}
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo "❌ Falló el pipeline en la rama ${env.BRANCH_NAME}"
+        }
+        success {
+            echo "✅ Pipeline exitoso en la rama ${env.BRANCH_NAME}"
+        }
     }
 }
