@@ -84,6 +84,14 @@ pipeline {
     post {
         always {
             junit allowEmptyResults: true, testResults: 'reports/junit/jest-report.xml'
+            publishHTML(target: [
+            reportDir: 'reports/html',
+            reportFiles: 'index.html',
+            reportName: 'Jest HTML Report',
+            keepAll: true,
+            alwaysLinkToLastBuild: true,
+            allowMissing: true
+        ])
         }
         failure {
             echo "❌ Falló el pipeline en la rama ${env.BRANCH_NAME}"
