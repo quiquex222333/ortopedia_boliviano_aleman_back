@@ -8,7 +8,17 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url 'https://github.com/quiquex222333/ortopedia_boliviano_aleman_back.git'
+                script {
+                    def branch = env.BRANCH_NAME ?: 'main'
+
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: "*/${branch}"]],
+                        userRemoteConfigs: [[
+                            url: 'https://github.com/usuario/backend-express-repo.git'
+                        ]]
+                    ])
+                }
             }
         }
 
