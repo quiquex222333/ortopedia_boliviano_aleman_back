@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                git 'https://github.com/quiquex222333/ortopedia_boliviano_aleman_back.git'
+                git branch: 'main', url 'https://github.com/quiquex222333/ortopedia_boliviano_aleman_back.git'
             }
         }
 
