@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node-lts'
+        nodejs 'node-lts' // Tu versión de Node configurada en Jenkins
     }
 
     environment {
@@ -16,76 +16,52 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm ci'
-            }
-        }
-
-        stage('Debug Paths') {
+        stage('Confirm Context') {
             steps {
                 sh '''
                     echo "📁 Directorio actual: $(pwd)"
-                    echo "📄 Contenido del directorio:"
-                    ls -la
-                    echo "📦 Verificando eslint.config.mjs:"
-                    cat eslint.config.mjs || echo "❌ No se encuentra"
+                    echo "📄 package.json:"
+                    cat package.json || echo "❌ package.json no encontrado"
+                    echo "🔍 eslint.config.mjs:"
+                    cat eslint.config.mjs || echo "❌ eslint.config.mjs no encontrado"
                 '''
             }
         }
 
-        stage('Verificar instalación') {
+        stage('Clean & Install') {
             steps {
                 sh '''
-                    echo "📦 Revisando instalación de globals:"
-                    ls node_modules/globals/package.json || echo "❌ globals NO instalado"
+                    rm -rf node_modules
+                    npm ci
                 '''
             }
         }
 
-
+        stage('Verificar Globals') {
+            steps {
+                sh '''
+                    echo "✅ Verificando que 'globals' esté instalado:"
+                    ls node_modules/globals/package.json || (echo "❌ globals NO instalado" && exit 1)
+                '''
+            }
+        }
 
         stage('Lint') {
             steps {
-                sh 'npm run lint'
+                sh './node_modules/.bin/eslint .'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm run test'
-            }
-        }
-
-        stage('Deploy') {
-            when {
-                anyOf {
-                    branch 'develop'
-                    branch 'staging'
-                }
-            }
-            steps {
-                script {
-                    def envFolder = (env.BRANCH_NAME == 'develop') ? 'dev' : 'staging'
-                    def appName = "backend-${envFolder}"
-
-                    sh """
-                        DEST_DIR=/var/www/backend-${envFolder}
-                        rm -rf \$DEST_DIR
-                        mkdir -p \$DEST_DIR
-                        cp -r . \$DEST_DIR
-
-                        pm2 delete ${appName} || true
-                        pm2 start \$DEST_DIR/app.js --name ${appName}
-                    """
-                }
+                sh './node_modules/.bin/jest'
             }
         }
     }
 
     post {
         failure {
-            echo "❌ Falló el pipeline en la rama ${env.BRANCH_NAME}"
+            echo "❌ Algo falló en el pipeline en la rama ${env.BRANCH_NAME}"
         }
         success {
             echo "✅ Pipeline exitoso en la rama ${env.BRANCH_NAME}"
