@@ -23,9 +23,11 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'rm -rf node_modules package-lock.json'
-                sh 'npm install --save-dev globals'
-                sh 'npm install --verbose'
+                 sh '''
+                    rm -rf node_modules package-lock.json
+                    npm cache clean --force
+                    npm install
+                '''
             }
         }
 
