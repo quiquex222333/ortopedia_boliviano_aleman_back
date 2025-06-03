@@ -15,7 +15,7 @@ pipeline {
                         $class: 'GitSCM',
                         branches: [[name: "*/${branch}"]],
                         userRemoteConfigs: [[
-                            url: 'https://github.com/usuario/backend-express-repo.git'
+                            url: 'https://github.com/quiquex222333/ortopedia_boliviano_aleman_back.git'
                         ]]
                     ])
                 }
