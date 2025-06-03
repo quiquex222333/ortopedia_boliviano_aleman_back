@@ -22,6 +22,29 @@ pipeline {
             }
         }
 
+        stage('Debug Paths') {
+            steps {
+                sh '''
+                    echo "📁 Directorio actual: $(pwd)"
+                    echo "📄 Contenido del directorio:"
+                    ls -la
+                    echo "📦 Verificando eslint.config.mjs:"
+                    cat eslint.config.mjs || echo "❌ No se encuentra"
+                '''
+            }
+        }
+
+        stage('Verificar instalación') {
+            steps {
+                sh '''
+                    echo "📦 Revisando instalación de globals:"
+                    ls node_modules/globals/package.json || echo "❌ globals NO instalado"
+                '''
+            }
+        }
+
+
+
         stage('Lint') {
             steps {
                 sh 'npm run lint'
