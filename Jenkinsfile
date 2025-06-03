@@ -24,7 +24,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'rm -rf node_modules package-lock.json'
-                sh 'npm ci || npm install --legacy-peer-deps'
+                sh 'npm install --verbose'
             }
         }
 
