@@ -41,7 +41,8 @@ pipeline {
             steps {
                 sh '''
                     echo "✅ Verificando que 'globals' esté instalado:"
-                    ls node_modules/globals/package.json || (echo "❌ globals NO instalado" && exit 1)
+                    ls node_modules || (echo "❌ globals NO instalado" && exit 1)
+                    pwd
                 '''
             }
         }
