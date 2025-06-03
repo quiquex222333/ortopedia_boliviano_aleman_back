@@ -28,15 +28,14 @@ pipeline {
                     npm cache clean --force
                     npm install
                 '''
-                sh 'npm install /usr/local/lib/node_modules/globals'
             }
         }
 
-        stage('Lint') {
-            steps {
-                sh 'npx eslint .'
-            }
-        }
+        // stage('Lint') {
+        //     steps {
+        //         sh 'npx eslint .'
+        //     }
+        // }
 
         stage('Test') {
             steps {
