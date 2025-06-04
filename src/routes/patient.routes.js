@@ -11,7 +11,7 @@ router.use(authenticate);
  * @swagger
  * tags:
  *   name: Patients
- *   description: Endpoints protegidos para gestionar pacientes médicos
+ *   description: Gestión de pacientes médicos
  */
 
 /**
@@ -23,10 +23,6 @@ router.use(authenticate);
  *       required:
  *         - identityNumber
  *         - lastName
- *         - middleName
- *         - firstName
- *         - birthDate
- *         - biologicalGender
  *       properties:
  *         identityNumber:
  *           type: number
@@ -73,7 +69,7 @@ router.use(authenticate);
  *             $ref: '#/components/schemas/Patient'
  *     responses:
  *       201:
- *         description: Paciente creado
+ *         description: Paciente creado exitosamente
  *       400:
  *         description: Error de validación
  */
@@ -90,6 +86,8 @@ router.post('/', validate(patientSchema), controller.create);
  *     responses:
  *       200:
  *         description: Lista de pacientes
+ *       400:
+ *         description: Error al obtener datos
  */
 router.get('/', controller.getAll);
 
@@ -97,7 +95,7 @@ router.get('/', controller.getAll);
  * @swagger
  * /patients/{id}:
  *   get:
- *     summary: Obtener un paciente por ID
+ *     summary: Obtener paciente por ID
  *     tags: [Patients]
  *     security:
  *       - bearerAuth: []
@@ -119,7 +117,7 @@ router.get('/:id', controller.getById);
  * @swagger
  * /patients/{id}:
  *   put:
- *     summary: Actualizar un paciente
+ *     summary: Actualizar paciente por ID
  *     tags: [Patients]
  *     security:
  *       - bearerAuth: []
@@ -149,7 +147,7 @@ router.put('/:id', validate(patientSchema), controller.update);
  * @swagger
  * /patients/{id}:
  *   delete:
- *     summary: Eliminar un paciente
+ *     summary: Eliminar paciente por ID
  *     tags: [Patients]
  *     security:
  *       - bearerAuth: []
@@ -161,7 +159,7 @@ router.put('/:id', validate(patientSchema), controller.update);
  *           type: string
  *     responses:
  *       200:
- *         description: Paciente eliminado
+ *         description: Paciente eliminado correctamente
  *       404:
  *         description: Paciente no encontrado
  */
